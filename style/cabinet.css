@@ -1,0 +1,54 @@
+.rt-text {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.input {
+    width: 360px;
+    height: 45px;
+    margin-bottom: 20px;
+}
+
+.title-page {
+    height: 148px;
+    background: #f8f3f4;
+}
+.title-page .p-title-page {
+    font-size: 24px;
+    line-height: 29px;
+    color: #f16d7f;
+}
+
+.regist-p {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 16px;
+    color: #b1b1b1;
+}
+
+.registration-but {
+    margin-top: 40px;
+    background: #f16d7f;
+    font-size: 14px;
+    line-height: 17px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border: none;
+    color: #ffffff;
+}
+
+.registration-text {
+    margin-left: 130px;
+}
+.registration-text .rt-text {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 29px;
+}
+.registration-text .div-rt-text {
+    margin-top: 20px;
+    list-style-image: url(img/jackdaw.jpg);
+}

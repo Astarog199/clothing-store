@@ -1,0 +1,53 @@
+/*  верхний блок*/
+
+.banner {
+    width: 100%;
+    background: #f1e4e6;
+}
+
+.title {
+    overflow: hidden;
+    height: 764px;
+    background-image: url(img/Layer_57-removebg-preview\ 1.png);
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.element-title {
+    float: left;
+    clear: both;
+    width: 12px;
+    height: 92px;
+    background: #f16d7f;
+    top: 290px;
+    margin-left: 635px;
+    margin-right: 16px;
+    margin-top: 290px;
+}
+
+.name {
+    height: 92px;
+    width: 700px;
+}
+
+.h-title {
+    margin-left: 32px;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 58px;
+    color: #222222;
+}
+
+.p-title {
+    margin-left: 32px;
+    font-weight: 700;
+    font-size: 32px;
+    color: #222222;
+}
+
+.but-title {
+    font-size: 37px;
+    text-decoration: none;
+    color: #f16d7f;
+}
+

@@ -1,0 +1,120 @@
+.title-page {
+  height: 148px;
+  background: #f8f3f4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.p-title-page {
+  font-size: 24px;
+  line-height: 29px;
+  color: #f16d7f;
+}
+
+.but-title-page {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #636363;
+}
+
+.menu-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.filter {
+  position: relative;
+  margin-right: 30px;
+  padding: 10px;
+  padding-right: 300px;
+}
+
+.button-filter {
+  padding: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ef5b70;
+}
+
+.box-filter {
+  display: none;
+  top: 255px;
+  left: 17%;
+  position: absolute;
+  overflow: hidden;
+  width: 360px;
+  background: #ffffff;
+}
+
+.filter:hover ~ .box-filter,
+.box-filter:hover {
+  display: block;
+}
+
+.element-box-filter {
+  background: #ef5b70;
+  width: 5px;
+}
+
+.category {
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 250px;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ef5b70;
+  border-bottom: 1px solid #ebebeb59;
+  width: 330px;
+}
+
+.category-item {
+  display: none;
+}
+
+.category:active ~ .category-item,
+.category:focus ~ .category-item,
+.category-item:hover {
+  display: block;
+}
+
+.but-menu2 {
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 17px;
+  color: #6f6e6e;
+  padding-left: 25px;
+}
+
+.but-menu2:active ~ .BoxinMenu2,
+.but-menu2:focus ~ .BoxinMenu2,
+.BoxinMenu2:hover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.BoxinMenu2 {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.menu-choise {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+}
