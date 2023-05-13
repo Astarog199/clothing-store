@@ -11,6 +11,8 @@
 </head>
 
 <body>
+    <div id="app">
+
 <header class="head">
     <div class="head-flex container">
         <div class="head-left">
@@ -97,26 +99,29 @@
 
         <div class="katalog">
 
-            <div class="card-products">
-                <div class="card">
-                    <a class="card-link" href="product.html">
-                        <img class="card-img" src="./style/img/katalog/1.png" alt="товар">
-                    </a>
-                    <div class="add-to-cart">
-                        <a class="ButToCard" href="cart.html"> <img src="./style/img/icon2.png" alt="cart"> &nbsp Add to Cart</a>
+           
+                <div class="card-products" v-for="product of products" :key="product.id">
+                    <div class="card">
+                        <div>
+                            <a class="card-link" href="product.html">
+                                <img class="card-img" :src=product.foto alt="товар">
+                            </a>
+                        </div>
+                        <div class="add-to-cart">
+                            <a class="ButToCard" @click="addProduct(product)" href="cart.html"> <img src="img/icon2.png" alt="add-to-cart"> &nbsp Add to
+                                Cart</a>
+                        </div>
+                    </div>
+                    <div class="card-text">
+                        <h1 class="h1-products">{{product.title}}</h1>
+                        <p class="p-cci">{{product.text}}</p>
+                        <br>
+                        <p class="price"> $ {{product.price}} </p>
                     </div>
                 </div>
-                <div class="card-text">
-                    <h1 class="h1-products">ELLERY X M'O CAPSULE</h1>
-                    <p class="p-cci">Known for her sculptural takes on&nbsp;
-                        traditional tailoring, Australian arbiter of&nbsp;cool
-                        Kym Ellery teams up&nbsp;with Moda Operandi.</p>
-                    <br>
-                    <p class="price"> $52.00</p>
-                </div>
-            </div>
+            
 
-            <div class="card-products">
+            <!-- <div class="card-products">
                 <div class="card">
                     <div>
                         <a class="card-link" href="product.html">
@@ -287,7 +292,8 @@
                     <br>
                     <p class="price"> $52.00</p>
                 </div>
-            </div>
+            </div> -->
+
 
         </div>
         <div class="gg">
@@ -359,7 +365,10 @@
             <a class="icon-fot" href="https://twitter.com/"> <img src="img/href/twitter .png" alt="twitter"> </a>
         </div>
     </div>
-</div>
+</div></div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="JavaScript/ProductDTO.js"></script>
+<script src="JavaScript/app.js"></script>
 </body>
 
 </html>
