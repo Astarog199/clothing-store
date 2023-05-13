@@ -1,11 +1,11 @@
 @charset "UTF-8";
-@import url(style/Heder.css);
-@import url(style/Footer.css);
-@import url(style/katalog.css);
-@import url(style/product.css);
-@import url(style/MainPage.css);
-@import url(style/cart.css);
-@import url(style/cabinet.css);
+@import url(Heder.css);
+@import url(Footer.css);
+@import url(katalog.css);
+@import url(product.css);
+@import url(MainPage.css);
+@import url(cart.css);
+@import url(cabinet.css);
 * {
   padding: 0;
   margin: 0;
@@ -20,28 +20,28 @@
 
 /*  ГЛАВНАЯ СТРАНИЦА*/
 .title {
-  background-image: url(img/banner.png);
+  background-image: url(../img/banner.png);
 }
 
 .items {
-  background-image: url(img/card1.jpg);
+  background-image: url(../img/card1.jpg);
 }
 
 .items2 {
-  background-image: url(img/card2.jpg);
+  background-image: url(../img/card2.jpg);
 }
 
 .items3 {
-  background-image: url(img/card3.jpg);
+  background-image: url(../img/card3.jpg);
 }
 
 .items4 {
-  background-image: url(img/card4.jpg);
+  background-image: url(../img/card4.jpg);
 }
 
 /*  товар */
 .footer-content {
-  background-image: url(img/footer.jpg);
+  background-image: url(../img/footer.jpg);
 }
 
 .registration-flex {
@@ -52,11 +52,11 @@
 
 /*  корзина */
 .img {
-  background-image: url(img/katalog/Image.png);
+  background-image: url(../img/katalog/Image.png);
 }
 
 .div-rt-text {
-  list-style-image: url(img/jackdaw.jpg);
+  list-style-image: url(../img/jackdaw.jpg);
 }
 
 @media (max-width: 768px) {
@@ -70,7 +70,6 @@
     padding-left: 16px;
     padding-right: 16px;
   }
-
   .title {
     background: none;
   }

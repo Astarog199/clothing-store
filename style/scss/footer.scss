@@ -1,0 +1,164 @@
+$color-pink: #f16d7f;
+
+.footer {
+    margin-top: 95px;
+    background: #222224;
+}
+
+.footer-head {
+    height: 340px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.service-1 {
+    margin-top: 105px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.h4-footer-head {
+    margin-top: 28px;
+    font-weight: 300;
+    font-size: 13.972px;
+    line-height: 17px;
+    text-align: center;
+    color: #fbfbfb;
+}
+
+.p-footer {
+    margin-top: 16px;
+    font-size: 13.972px;
+    line-height: 17px;
+    text-align: center;
+    color: #fbfbfb;
+}
+
+.footer-content {
+    height: 450px;
+    min-width: 1600px;
+    background-image: url(../img/footer.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footer-content2 {
+    height: 450px;
+    background: rgba(244, 244, 244, 0.7);
+}
+
+.footer-content3 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.persona {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.p-persona {
+    margin-top: 30px;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.subscribe {
+    margin-top: 150px;
+}
+
+.h4-sub {
+    text-align: center;
+    font-size: 24px;
+    line-height: 40, 13px;
+}
+
+.p-sub {
+    font-size: 24px;
+    line-height: 167.2%;
+    text-align: center;
+}
+
+.block-button-subscribe {
+    width: 355px;
+    background: #e1e1e1;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.bb {
+    background: $color-pink;
+    height: 56px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border-left: none;
+    justify-content: center;
+}
+
+.but-sub {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #ffffff;
+    background: $color-pink;
+}
+
+.input-footer {
+    border: none;
+    margin-left: 22px;
+    margin-right: 64px;
+    width: 170px;
+    height: 36px;
+    background: #e1e1e1;
+    font-size: 14px;
+    line-height: 17px;
+    opacity: 0.67;
+}
+
+.footer-copyright {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.copyright {
+    font-size: 16px;
+    line-height: 19px;
+    color: #fbfbfb;
+}
+
+.href-fot{
+    list-style-type: none;
+    display: flex;
+}
+
+.icon-fot{
+    margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+@media (max-width: 668px) {
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .title {
+        background: none;
+    }
+}
