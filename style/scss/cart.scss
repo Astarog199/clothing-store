@@ -1,5 +1,56 @@
 $color-pink: #f16d7f;
 
+.cartIcon {
+    position: relative;
+    cursor: pointer;
+}
+
+.cartIcon span {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    color: white;
+    background: $color-pink;
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    right: -8px;
+    top: -5px;
+    font-size: 12px;
+    line-height: 19px;
+}
+
+.basket{
+    width: 575px;
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    top: 75px;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.basketRow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 10px;
+}
+
+.basketHeader {
+    font-weight: bold;
+}
+
+.basketTotal {
+    font-weight: bold;
+    text-align: right;
+}
+
 .title-page {
     height: 148px;
     background: #f8f3f4;
@@ -76,6 +127,7 @@ $color-pink: #f16d7f;
                     margin-top: 25px;
                 }
             }
+            
             .cart-ButRight {
                 margin-top: 25px;
                 padding-top: 10px;

@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <div id="app">
 <header class="head">
     <div class="head-flex container">
         <div class="head-left">
@@ -44,15 +45,43 @@
                     <a class="item-link" href="#">Denim</a>
                     <a class="item-link" href="#">T-Shirts</a>
                 </div>
-
-
             </div>
 
             <a class="cabinet" href="cabinet.html"> <img src="style/img/icon.png" alt="Personal Area"></a>
-            <a class="basket" href="cart.html"> <img src="style/img/icon2.png" alt="basket"></a>
+            
+            <span class="IconWrap cartIcon">
+                <a class="basket" href="cart.html"> <img src="style/img/icon2.png" alt="basket"></a>
+                <span>0</span>
+            </span>
+
+            <div class="basket hidden">
+                <div class="basketRow basketHeader">
+                    <div>Фото товара</div>
+                    <div>Название товара</div>
+                    <div>Количество</div>
+                    <div>Цена за шт.</div>
+                    <div>Итого</div>
+                </div>
+
+                <div class="basketRow"  v-for="Item_header of cartItems_header" :key="Item_header.id">
+                    <div>  <img class="cart_pictures"  :src=Item_header.foto alt="Some image">  </div>
+                    <div><h3>{{Item.title}}</h3></div>
+                    <div> <span class="productCount">{{Item.quantity}}</span> шт. </div>
+                    <div>${{Item.price}}</div>
+                    <div>
+                        $<span class="productTotalRow">0</span>
+                    </div>
+                </div>  
+
+                <div class="basketTotal">
+                    Товаров в корзине на сумму:
+                    $<span class="basketTotalValue">0</span>
+                </div>
+            </div>
         </div>
     </div>
 </header>
+
     <div class="title-page">
         <div class="container">
             <p class="p-title-page">SHOPPING CART</p>
@@ -60,36 +89,27 @@
     </div>
 
 
-    <div class="cart flex container">
-        <div class="cart-left">
-            <div class="lot">
-                <img class="img" src="style/img/cart.png" alt="img">
-                <div class="lot-specification">
-                    <p class="lot-h">MANGO PEOPLE <br> T-SHIRT</p>
-                    <p class="lot-p">Price: $300 </p>
-                    <p class="lot-p">Color: Red</p>
-                    <p class="lot-p">Size: Xl </p>
-                    <p class="lot-p">Quantity: 2 </p>
+     <div class="cart flex container" >
+       
+            <div class="cart-left">
+                <div  v-for="Item of cartItems" :key="Item.id">
+                    <div class="lot">
+                        <img class="img" :src=Item.foto alt="img">
+                        <div class="lot-specification">
+                            <p class="lot-h">{{Item.title}} <br> T-SHIRT</p>
+                            <p class="lot-p">Price: ${{Item.price}} </p>
+                            <p class="lot-p">Color: Red</p>
+                            <p class="lot-p">Size: Xl </p>
+                            <p class="lot-p">Quantity: {{Item.quantity}} </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="lot">
-                <img class="img" src="style/img/cart2.png" alt="img">
-                <div class="lot-specification">
-                    <p class="lot-h">MANGO PEOPLE <br> T-SHIRT</p>
-                    <p class="lot-p">Price: $300 </p>
-                    <p class="lot-p">Color: Red</p>
-                    <p class="lot-p">Size: Xl </p>
-                    <p class="lot-p">Quantity: 2 </p>
-                </div>
-            </div>
+       
             <div class="flex">
                 <button class="cart-But" type="#">CLEAR SHOPPING CART</button>
                 <button class="cart-But" type="#">CONTINUE SHOPPING</button>
             </div>
-
         </div>
-
 
         <div class="cart-right">
 
@@ -106,38 +126,38 @@
 
             <div class="pay">
                 <form action="#">
-                    <p class="p-pay">SUB TOTAL $900 </p>
-                    <p class="p2-pay"> GRAND TOTAL $900 </p>
+                    <p class="p-pay">SUB TOTAL ${{carttotal}} </p>
+                    <p class="p2-pay"> GRAND TOTAL ${{carttotal}} </p>
                 </form>
                 <hr>
 
                 <button class="but-pay" type="#">PROCEED TO CHECKOUT</button>
             </div>
         </div>
-
     </div>
-
+    </div>
+</div>
 
 
 <div class="footer">
     <div class="container footer-head">
 
         <div class="service-1">
-            <img src="img/footer1.png" alt="picture">
+            <img src="./style/img/footer1.png" alt="picture">
             <h4 class="h4-footer-head">Free Delivery</h4>
             <p class="p-footer">Worldwide delivery on&nbsp;all. Authorit tively morph <nobr> <br>
                     next-generation</nobr> innov tion with extensive models.</p>
         </div>
 
         <div class="service-1">
-            <img src="img/footer3.png" alt="picture">
+            <img src="./style/img/footer3.png" alt="picture">
             <h4 class="h4-footer-head">Sales & discounts</h4>
             <p class="p-footer">Worldwide delivery on&nbsp;all. Authorit tively morph <nobr> <br>
                     next-generation</nobr> innov tion with extensive models.</p>
         </div>
 
         <div class="service-1">
-            <img src="img/footer2.png" alt="picture">
+            <img src="./style/img/footer2.png" alt="picture">
             <h4 class="h4-footer-head">Quality assurance</h4>
             <p class="p-footer">Worldwide delivery on&nbsp;all. Authorit tively morph <nobr> <br>
                     next-generation</nobr> innov tion with extensive models.</p>
@@ -148,7 +168,7 @@
         <div class="footer-content2">
             <div class="container footer-content3">
                 <div class="persona">
-                    <img src="img/Intersect.png" alt="">
+                    <img src="./style/img/Intersect.png" alt="">
                     <p class="p-persona">&laquo;Vestibulum quis porttitor dui! Quisque <br>
                         viverra nunc mi, a&nbsp;pulvinar purus <br>
                         condimentum&raquo;</p>
@@ -174,16 +194,21 @@
             <img src="img/" alt=""> <a class="Button-ONLINE-SERVICE" href="https://gb.ru/" target="_blank"></a>
         </div>
         <div class="href-fot">
-            <a class="icon-fot" href="https://www.facebook.com/"> <img src="img/href/facebook.png" alt="facebook">
+            <a class="icon-fot" href="https://www.facebook.com/"> <img src="./style/img/href/facebook.png" alt="facebook">
             </a>
-            <a class="icon-fot" href="https://www.instagram.com/"> <img src="img/href/instagram.png"
+            <a class="icon-fot" href="https://www.instagram.com/"> <img src="./style/img/href/instagram.png"
                     alt="instagram"> </a>
-            <a class="icon-fot" href="https://www.pinterest.ru/"> <img src="img/href/pinterest.png" alt="pinterest">
+            <a class="icon-fot" href="https://www.pinterest.ru/"> <img src="./style/img/href/pinterest.png" alt="pinterest">
             </a>
-            <a class="icon-fot" href="https://twitter.com/"> <img src="img/href/twitter .png" alt="twitter"> </a>
+            <a class="icon-fot" href="https://twitter.com/"> <img src="./style/img/href/twitter .png" alt="twitter"> </a>
         </div>
     </div>
-</div>    
+</div>
+
+</div>
+   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="JavaScript/ProductDTO.js"></script>
+<script src="JavaScript/app.js"></script> 
 </body>
 
 </html>

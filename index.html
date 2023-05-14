@@ -47,15 +47,43 @@
                     <a class="item-link" href="#">Denim</a>
                     <a class="item-link" href="#">T-Shirts</a>
                 </div>
-
-
             </div>
 
             <a class="cabinet" href="cabinet.html"> <img src="style/img/icon.png" alt="Personal Area"></a>
-            <a class="basket" href="cart.html"> <img src="style/img/icon2.png" alt="basket"></a>
+            
+            <span class="IconWrap cartIcon">
+                <a class="basket" href="cart.html"> <img src="style/img/icon2.png" alt="basket"></a>
+                <span>0</span>
+            </span>
+
+            <div class="basket hidden">
+                <div class="basketRow basketHeader">
+                    <div>Фото товара</div>
+                    <div>Название товара</div>
+                    <div>Количество</div>
+                    <div>Цена за шт.</div>
+                    <div>Итого</div>
+                </div>
+
+                <div class="basketRow"  v-for="Item_header of cartItems_header" :key="Item_header.id">
+                    <div>  <img class="cart_pictures"  :src=Item_header.foto alt="Some image">  </div>
+                    <div><h3>{{Item.title}}</h3></div>
+                    <div> <span class="productCount">{{Item.quantity}}</span> шт. </div>
+                    <div>${{Item.price}}</div>
+                    <div>
+                        $<span class="productTotalRow">0</span>
+                    </div>
+                </div>  
+
+                <div class="basketTotal">
+                    Товаров в корзине на сумму:
+                    $<span class="basketTotalValue">0</span>
+                </div>
+            </div>
         </div>
     </div>
 </header>
+
     <div class="banner">
         <div class="container title">
             <div class="element-title">
@@ -98,203 +126,25 @@
         <p class="p-products">Shop for items based on what we featured in this week</p>
 
         <div class="katalog">
-
-           
-                <div class="card-products" v-for="product of products" :key="product.id">
-                    <div class="card">
-                        <div>
-                            <a class="card-link" href="product.html">
-                                <img class="card-img" :src=product.foto alt="товар">
-                            </a>
-                        </div>
-                        <div class="add-to-cart">
-                            <a class="ButToCard" @click="addProduct(product)" href="cart.html"> <img src="img/icon2.png" alt="add-to-cart"> &nbsp Add to
-                                Cart</a>
-                        </div>
-                    </div>
-                    <div class="card-text">
-                        <h1 class="h1-products">{{product.title}}</h1>
-                        <p class="p-cci">{{product.text}}</p>
-                        <br>
-                        <p class="price"> $ {{product.price}} </p>
-                    </div>
-                </div>
-            
-
-            <!-- <div class="card-products">
+            <div class="card-products" v-for="product of products" :key="product.id">
                 <div class="card">
                     <div>
                         <a class="card-link" href="product.html">
-                            <img class="card-img" src="./style/img/katalog/1.png" alt="товар">
+                            <img class="card-img" :src=product.foto alt="товар">
                         </a>
                     </div>
                     <div class="add-to-cart">
-                        <a class="ButToCard" href="cart.html"> <img src="./style/img/icon2.png" alt="cart"> &nbsp Add to
+                        <a class="ButToCard" @click="addProduct(product)" href="cart.html"> <img src="./style/img/icon2.png" alt="add-to-cart"> &nbsp Add to
                             Cart</a>
                     </div>
                 </div>
                 <div class="card-text">
-                    <h1 class="h1-products">ELLERY X M'O CAPSULE</h1>
-                    <p class="p-cci">Known for her sculptural takes on&nbsp;
-                        traditional tailoring, Australian arbiter of&nbsp;cool
-                        Kym Ellery teams up&nbsp;with Moda Operandi.</p>
+                    <h1 class="h1-products">{{product.title}}</h1>
+                    <p class="p-cci">{{product.text}}</p>
                     <br>
-                    <p class="price"> $52.00</p>
+                    <p class="price"> $ {{product.price}} </p>
                 </div>
             </div>
-
-            <div class="card-products">
-                <div class="card">
-                    <div>
-                        <a class="card-link" href="product.html">
-                            <img class="card-img" src="img/card5.png" alt="товар">
-                        </a>
-                    </div>
-                    <div class="add-to-cart">
-                        <a class="ButToCard" href="cart.html"> <img src="img/icon2.png" alt="cart"> &nbsp Add to
-                            Cart</a>
-                    </div>
-                </div>
-                <div class="card-text">
-                    <h1 class="h1-products">ELLERY X M'O CAPSULE</h1>
-                    <p class="p-cci">Known for her sculptural takes on&nbsp;
-                        traditional tailoring, Australian arbiter of&nbsp;cool
-                        Kym Ellery teams up&nbsp;with Moda Operandi.</p>
-                    <br>
-                    <p class="price"> $52.00</p>
-                </div>
-            </div>
-
-            <div class="card-products">
-                <div class="card">
-                    <div>
-                        <a class="card-link" href="product.html">
-                            <img class="card-img" src="./style/img/katalog/1.png" alt="товар">
-                        </a>
-                    </div>
-                    <div class="add-to-cart">
-                        <a class="ButToCard" href="cart.html"> <img src="img/icon2.png" alt="cart"> &nbsp Add to
-                            Cart</a>
-                    </div>
-                </div>
-                <div class="card-text">
-                    <h1 class="h1-products">ELLERY X M'O CAPSULE</h1>
-                    <p class="p-cci">Known for her sculptural takes on&nbsp;
-                        traditional tailoring, Australian arbiter of&nbsp;cool
-                        Kym Ellery teams up&nbsp;with Moda Operandi.</p>
-                    <br>
-                    <p class="price"> $52.00</p>
-                </div>
-            </div>
-
-            <div class="card-products">
-                <div class="card">
-                    <div>
-                        <a class="card-link" href="product.html">
-                            <img class="card-img" src="img/card5.png" alt="товар">
-                        </a>
-                    </div>
-                    <div class="add-to-cart">
-                        <a class="ButToCard" href="cart.html"> <img src="img/icon2.png" alt="cart"> &nbsp Add to
-                            Cart</a>
-                    </div>
-                </div>
-                <div class="card-text">
-                    <h1 class="h1-products">ELLERY X M'O CAPSULE</h1>
-                    <p class="p-cci">Known for her sculptural takes on&nbsp;
-                        traditional tailoring, Australian arbiter of&nbsp;cool
-                        Kym Ellery teams up&nbsp;with Moda Operandi.</p>
-                    <br>
-                    <p class="price"> $52.00</p>
-                </div>
-            </div>
-
-            <div class="card-products">
-                <div class="card">
-                    <div>
-                        <a class="card-link" href="product.html">
-                            <img class="card-img" src="img/card5.png" alt="товар">
-                        </a>
-                    </div>
-                    <div class="add-to-cart">
-                        <a class="ButToCard" href="cart.html"> <img src="img/icon2.png" alt="cart"> &nbsp Add to
-                            Cart</a>
-                    </div>
-                </div>
-                <div class="card-text">
-                    <h1 class="h1-products">ELLERY X M'O CAPSULE</h1>
-                    <p class="p-cci">Known for her sculptural takes on&nbsp;
-                        traditional tailoring, Australian arbiter of&nbsp;cool
-                        Kym Ellery teams up&nbsp;with Moda Operandi.</p>
-                    <br>
-                    <p class="price"> $52.00</p>
-                </div>
-            </div>
-
-            <div class="card-products">
-                <div class="card">
-                    <div>
-                        <a class="card-link" href="product.html">
-                            <img class="card-img" src="img/card5.png" alt="товар">
-                        </a>
-                    </div>
-                    <div class="add-to-cart">
-                        <a class="ButToCard" href="cart.html"> <img src="img/icon2.png" alt="cart"> &nbsp Add to
-                            Cart</a>
-                    </div>
-                </div>
-                <div class="card-text">
-                    <h1 class="h1-products">ELLERY X M'O CAPSULE</h1>
-                    <p class="p-cci">Known for her sculptural takes on&nbsp;
-                        traditional tailoring, Australian arbiter of&nbsp;cool
-                        Kym Ellery teams up&nbsp;with Moda Operandi.</p>
-                    <br>
-                    <p class="price"> $52.00</p>
-                </div>
-            </div>
-
-            <div class="card-products">
-                <div class="card">
-                    <div>
-                        <a class="card-link" href="product.html">
-                            <img class="card-img" src="img/card5.png" alt="товар">
-                        </a>
-                    </div>
-                    <div class="add-to-cart">
-                        <a class="ButToCard" href="cart.html"> <img src="img/icon2.png" alt="cart"> &nbsp Add to
-                            Cart</a>
-                    </div>
-                </div>
-                <div class="card-text">
-                    <h1 class="h1-products">ELLERY X M'O CAPSULE</h1>
-                    <p class="p-cci">Known for her sculptural takes on&nbsp;
-                        traditional tailoring, Australian arbiter of&nbsp;cool
-                        Kym Ellery teams up&nbsp;with Moda Operandi.</p>
-                    <br>
-                    <p class="price"> $52.00</p>
-                </div>
-            </div>
-
-            <div class="card-products">
-                <div class="card">
-                    <a class="card-link" href="#">
-                        <img class="card-img" src="img/card5.png" alt="товар">
-                    </a>
-                    <div class="add-to-cart">
-                        <a class="ButToCard" href="#"> <img src="img/icon2.png" alt="cart"> &nbsp Add to Cart</a>
-                    </div>
-                </div>
-                <div class="card-text">
-                    <h1 class="h1-products">ELLERY X M'O CAPSULE</h1>
-                    <p class="p-cci">Known for her sculptural takes on&nbsp;
-                        traditional tailoring, Australian arbiter of&nbsp;cool
-                        Kym Ellery teams up&nbsp;with Moda Operandi.</p>
-                    <br>
-                    <p class="price"> $52.00</p>
-                </div>
-            </div> -->
-
-
         </div>
         <div class="gg">
             <a class="but-product" href="katalog.html">Browse All Product</a>
@@ -305,21 +155,21 @@
     <div class="container footer-head">
 
         <div class="service-1">
-            <img src="img/footer1.png" alt="picture">
+            <img src="./style/img/footer1.png" alt="picture">
             <h4 class="h4-footer-head">Free Delivery</h4>
             <p class="p-footer">Worldwide delivery on&nbsp;all. Authorit tively morph <nobr> <br>
                     next-generation</nobr> innov tion with extensive models.</p>
         </div>
 
         <div class="service-1">
-            <img src="img/footer3.png" alt="picture">
+            <img src="./style/img/footer3.png" alt="picture">
             <h4 class="h4-footer-head">Sales & discounts</h4>
             <p class="p-footer">Worldwide delivery on&nbsp;all. Authorit tively morph <nobr> <br>
                     next-generation</nobr> innov tion with extensive models.</p>
         </div>
 
         <div class="service-1">
-            <img src="img/footer2.png" alt="picture">
+            <img src="./style/img/footer2.png" alt="picture">
             <h4 class="h4-footer-head">Quality assurance</h4>
             <p class="p-footer">Worldwide delivery on&nbsp;all. Authorit tively morph <nobr> <br>
                     next-generation</nobr> innov tion with extensive models.</p>
@@ -330,7 +180,7 @@
         <div class="footer-content2">
             <div class="container footer-content3">
                 <div class="persona">
-                    <img src="img/Intersect.png" alt="">
+                    <img src="./style/img/Intersect.png" alt="">
                     <p class="p-persona">&laquo;Vestibulum quis porttitor dui! Quisque <br>
                         viverra nunc mi, a&nbsp;pulvinar purus <br>
                         condimentum&raquo;</p>
@@ -356,16 +206,18 @@
             <img src="img/" alt=""> <a class="Button-ONLINE-SERVICE" href="https://gb.ru/" target="_blank"></a>
         </div>
         <div class="href-fot">
-            <a class="icon-fot" href="https://www.facebook.com/"> <img src="img/href/facebook.png" alt="facebook">
+            <a class="icon-fot" href="https://www.facebook.com/"> <img src="./style/img/href/facebook.png" alt="facebook">
             </a>
-            <a class="icon-fot" href="https://www.instagram.com/"> <img src="img/href/instagram.png"
+            <a class="icon-fot" href="https://www.instagram.com/"> <img src="./style/img/href/instagram.png"
                     alt="instagram"> </a>
-            <a class="icon-fot" href="https://www.pinterest.ru/"> <img src="img/href/pinterest.png" alt="pinterest">
+            <a class="icon-fot" href="https://www.pinterest.ru/"> <img src="./style/img/href/pinterest.png" alt="pinterest">
             </a>
-            <a class="icon-fot" href="https://twitter.com/"> <img src="img/href/twitter .png" alt="twitter"> </a>
+            <a class="icon-fot" href="https://twitter.com/"> <img src="./style/img/href/twitter .png" alt="twitter"> </a>
         </div>
     </div>
-</div></div>
+</div>
+
+</div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="JavaScript/ProductDTO.js"></script>
 <script src="JavaScript/app.js"></script>

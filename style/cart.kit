@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <div id="app">
         <!-- @import header.html -->
 
     <div class="title-page">
@@ -19,36 +20,27 @@
     </div>
 
 
-    <div class="cart flex container">
-        <div class="cart-left">
-            <div class="lot">
-                <img class="img" src="style/img/cart.png" alt="img">
-                <div class="lot-specification">
-                    <p class="lot-h">MANGO PEOPLE <br> T-SHIRT</p>
-                    <p class="lot-p">Price: $300 </p>
-                    <p class="lot-p">Color: Red</p>
-                    <p class="lot-p">Size: Xl </p>
-                    <p class="lot-p">Quantity: 2 </p>
+     <div class="cart flex container" >
+       
+            <div class="cart-left">
+                <div  v-for="Item of cartItems" :key="Item.id">
+                    <div class="lot">
+                        <img class="img" :src=Item.foto alt="img">
+                        <div class="lot-specification">
+                            <p class="lot-h">{{Item.title}} <br> T-SHIRT</p>
+                            <p class="lot-p">Price: ${{Item.price}} </p>
+                            <p class="lot-p">Color: Red</p>
+                            <p class="lot-p">Size: Xl </p>
+                            <p class="lot-p">Quantity: {{Item.quantity}} </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="lot">
-                <img class="img" src="style/img/cart2.png" alt="img">
-                <div class="lot-specification">
-                    <p class="lot-h">MANGO PEOPLE <br> T-SHIRT</p>
-                    <p class="lot-p">Price: $300 </p>
-                    <p class="lot-p">Color: Red</p>
-                    <p class="lot-p">Size: Xl </p>
-                    <p class="lot-p">Quantity: 2 </p>
-                </div>
-            </div>
+       
             <div class="flex">
                 <button class="cart-But" type="#">CLEAR SHOPPING CART</button>
                 <button class="cart-But" type="#">CONTINUE SHOPPING</button>
             </div>
-
         </div>
-
 
         <div class="cart-right">
 
@@ -65,21 +57,24 @@
 
             <div class="pay">
                 <form action="#">
-                    <p class="p-pay">SUB TOTAL $900 </p>
-                    <p class="p2-pay"> GRAND TOTAL $900 </p>
+                    <p class="p-pay">SUB TOTAL ${{carttotal}} </p>
+                    <p class="p2-pay"> GRAND TOTAL ${{carttotal}} </p>
                 </form>
                 <hr>
 
                 <button class="but-pay" type="#">PROCEED TO CHECKOUT</button>
             </div>
         </div>
-
     </div>
-
+    </div>
+</div>
 
 
     <!-- @import footer.html -->
-    
+</div>
+   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="JavaScript/ProductDTO.js"></script>
+<script src="JavaScript/app.js"></script> 
 </body>
 
 </html>

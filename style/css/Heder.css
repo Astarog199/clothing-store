@@ -28,8 +28,9 @@
 
 .box {
     top: 75px;
-    right: -150%;
+    right: 230px;
     position: absolute;
+    z-index: 3;
     display: none;
     flex-direction: column;
     background: #ffffff;
@@ -82,4 +83,14 @@
 
 .basket {
     margin-left: 33px;
+}
+.basket_box{
+    background-color: white;
+    position: absolute;
+    top: 75px;
+    right: 0;
+}
+
+.cart-item{
+    display: flex;
 }

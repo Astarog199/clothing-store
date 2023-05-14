@@ -1,3 +1,56 @@
+.cartIcon {
+  position: relative;
+  cursor: pointer;
+}
+
+.cartIcon span {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  color: white;
+  background: #f16d7f;
+  border-radius: 50%;
+  position: absolute;
+  text-align: center;
+  right: -8px;
+  top: -5px;
+  font-size: 12px;
+  line-height: 19px;
+}
+
+.basket {
+  width: 575px;
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  top: 75px;
+  background: white;
+  padding: 10px;
+  border: 1px solid #ebebeb;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.basketRow {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 10px;
+}
+
+.basketHeader {
+  font-weight: bold;
+}
+
+.basketTotal {
+  font-weight: bold;
+  text-align: right;
+}
+
 .title-page {
   height: 148px;
   background: #f8f3f4;
@@ -90,7 +143,7 @@
   line-height: 13px;
   color: #4a4a4a;
   background: none;
-  border: 1px solid #a4a4a4;
+  border: 1px solid rgb(164, 164, 164);
 }
 .cart .cart-right .pay {
   margin-bottom: 70px;
