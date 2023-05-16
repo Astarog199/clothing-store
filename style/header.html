@@ -2,17 +2,18 @@
     <div class="head-flex container">
         <div class="head-left">
             <a href="index.html"> <img src="style/img/logo.png" alt="logo"></a>
-        
+
             <form v-on:submit.prevent="addNewTodo">
                 <label for="new-todo">Добавить задачу</label>
                 <input v-model="newTodoText" id="new-todo">
                 <button>Добавить</button>
-              </form>
-        
+            </form>
+
         </div>
 
         <div class="head-right">
-            <a class="menu-activ" href="javascript:void(0);" tabindex="1"> <img src="style/img/iconmenu.png" alt="меню">
+            <a class="IconWrap menu-activ" href="javascript:void(0);" tabindex="1"> <img src="style/img/iconmenu.png"
+                    alt="меню">
             </a>
             <div class="box">
                 <h2 class="menu-name">MENU</h2>
@@ -41,14 +42,14 @@
                 </div>
             </div>
 
-            <a class="cabinet" href="cabinet.html"> <img src="style/img/icon.png" alt="Personal Area"></a>
-            
+            <a class="IconWrap" href="cabinet.html"> <img src="style/img/icon.png" alt="Personal Area"></a>
+
             <span class="IconWrap cartIcon">
-                <a class="basket" href="cart.html"> <img src="style/img/icon2.png" alt="basket"></a>
-                <span>0</span>
+                <a class="" href="cart.html"> <img src="style/img/icon2.png" alt="basket"></a>
+                <span @click="isNone=!isNone"> {{countGoods}}</span>
             </span>
 
-            <div class="basket hidden">
+            <div class="basket" :class="{ hidden: isNone, show:!isNone}">
                 <div class="basketRow basketHeader">
                     <div>Фото товара</div>
                     <div>Название товара</div>
@@ -57,21 +58,26 @@
                     <div>Итого</div>
                 </div>
 
-                <div class="basketRow"  v-for="Item_header of cartItems_header" :key="Item_header.id">
-                    <div>  <img class="cart_pictures"  :src=Item_header.foto alt="Some image">  </div>
-                    <div><h3>{{Item.title}}</h3></div>
-                    <div> <span class="productCount">{{Item.quantity}}</span> шт. </div>
-                    <div>${{Item.price}}</div>
+                <div class="basketRow" v-for="Item_header of cartItems" :key="Item_header.id">
+                    <div> <img class="Item_header_pictures" :src=Item_header.foto alt="Some image"> </div>
                     <div>
-                        $<span class="productTotalRow">0</span>
+                        <p>{{Item_header.title}}</p>
                     </div>
-                </div>  
+                    <div> <span class="productCount">{{Item_header.quantity}}</span> шт. </div>
+                    <div>${{Item_header.price}}</div>
+                    <div>
+                        $<span class="productTotalRow">{{Item_header.quantity * Item_header.price}}</span>
+                    </div>
+                </div>
+
 
                 <div class="basketTotal">
                     Товаров в корзине на сумму:
-                    $<span class="basketTotalValue">0</span>
+                    $<span class="basketTotalValue">{{carttotal}}</span>
                 </div>
             </div>
+
         </div>
+
     </div>
 </header>

@@ -20,11 +20,11 @@ $color-pink: #f16d7f;
     line-height: 19px;
 }
 
-.basket{
+.basket {
     width: 575px;
     position: absolute;
     z-index: 3;
-    right: 0;
+    right: 0px;
     top: 75px;
     background: white;
     padding: 10px;
@@ -81,12 +81,14 @@ $color-pink: #f16d7f;
             height: 306px;
             margin-right: 30px;
         }
+
         .lot-specification {
             .lot-h {
                 font-size: 24px;
                 line-height: 29px;
                 margin-bottom: 42px;
             }
+
             .lot-p {
                 font-size: 22px;
                 line-height: 26px;
@@ -113,6 +115,7 @@ $color-pink: #f16d7f;
 
         .right-block-top {
             margin-bottom: 55px;
+
             .input-adress {
                 .rbt-h {
                     font-weight: 300;
@@ -120,6 +123,7 @@ $color-pink: #f16d7f;
                     line-height: 19px;
                     color: #222222;
                 }
+
                 .input {
                     width: 360px;
                     height: 45px;
@@ -127,7 +131,7 @@ $color-pink: #f16d7f;
                     margin-top: 25px;
                 }
             }
-            
+
             .cart-ButRight {
                 margin-top: 25px;
                 padding-top: 10px;
