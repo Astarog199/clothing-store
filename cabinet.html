@@ -16,9 +16,9 @@
             <a href="index.html"> <img src="style/img/logo.png" alt="logo"></a>
 
             <form v-on:submit.prevent="addNewTodo">
-                <label for="new-todo">Добавить задачу</label>
-                <input v-model="newTodoText" id="new-todo">
-                <button>Добавить</button>
+                <label for="new-todo"> фильтр</label>
+                <input v-model="fiterText" id="new-todo">
+                <button>найти</button>
             </form>
 
         </div>
@@ -88,9 +88,7 @@
                     $<span class="basketTotalValue">{{carttotal}}</span>
                 </div>
             </div>
-
         </div>
-
     </div>
 </header>
     <div class="title-page">

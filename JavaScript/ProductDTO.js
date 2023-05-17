@@ -7,6 +7,7 @@ const app = new Vue({
     basketUrl: "DATAbase_clothing-store/getBasket.json",
     products: [],
     cartItems: [],
+    value: '',
     carttotal: 0,
     countGoods: 0,
     isNone: true,
@@ -19,12 +20,25 @@ const app = new Vue({
           console.log(error);
         })
     },
-    addProduct(good) {
-      console.log(good);
+    addProduct(product) {
+      this.getJson(`${API}DATAbase_clothing-store/addToBasket.json`)
+        .then(data => {
+          if (data.result === 1) {
+            let find = this.cartItems.find(el => el.id === product.id);
+            if (find) {
+              find.quantity++;
+            } else {
+              let prod = Object.assign({ quantity: 1 }, product);
+              this.cartItems.push(prod);
+            }
+          } else {
+            alert('Error');
+          }
+        })
     },
     filter(value) {
       const regexp = new RegExp(value, 'i');
-      this.filtered = this.allProducts.filter(product => regexp.test(product.product_name));
+      this.filtered = this.allProducts.filter(product => regexp.test(product.title));
       this.allProducts.forEach(el => {
         const block = document.querySelector(`.product-item[data-id="${el.id}"]`);
         if (!this.filtered.includes(el)) {
