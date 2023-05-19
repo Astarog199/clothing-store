@@ -15,12 +15,10 @@
         <div class="head-left">
             <a href="index.html"> <img src="style/img/logo.png" alt="logo"></a>
 
-            <form v-on:submit.prevent="addNewTodo">
-                <label for="new-todo"> фильтр</label>
-                <input v-model="fiterText" id="new-todo">
-                <button>найти</button>
+            <form action="#" class="search-form" @submit.prevent="filter">
+                <input type="text" v-model="userSearch">
+                <button type="submit">найти</button>
             </form>
-
         </div>
 
         <div class="head-right">

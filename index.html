@@ -18,12 +18,12 @@
                 <div class="head-left">
                     <a href="index.html"> <img src="style/img/logo.png" alt="logo"></a>
 
-                    <form v-on:submit.prevent="addNewTodo">
-                        <label for="new-todo"> фильтр</label>
-                        <input v-model="fiterText" id="new-todo">
-                        <button>найти</button>
+                    <form action="#" class="search-form" @submit.prevent="filter">
+                        <input type="text" class="search-field" v-model="userSearch">
+                        <button class="btn-search" type="submit">
+                            <i class="fas fa-search"></i>все
+                        </button>
                     </form>
-
                 </div>
 
                 <div class="head-right">
@@ -85,6 +85,7 @@
                             </div>
                         </div>
 
+
                         <div class="basketTotal">
                             Товаров в корзине на сумму:
                             $<span class="basketTotalValue">{{carttotal}}</span>
@@ -133,6 +134,7 @@
         <section class="container products">
             <h2 class="h2-products">Fetured Items</h2>
             <p class="p-products">Shop for items based on what we featured in this week</p>
+
             <div class="katalog">
                 <div class="card-products" v-for="product of products" :key="product.id">
                     <div class="card">

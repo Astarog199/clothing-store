@@ -3,11 +3,12 @@ const API = 'https://raw.githubusercontent.com/Astarog199/online-store-api/main/
 const app = new Vue({
   el: '#app',
   data: {
+    userSearch: '',
     catalogUrl: "DATAbase_clothing-store/catalogDATA.json",
     basketUrl: "DATAbase_clothing-store/getBasket.json",
     products: [],
     cartItems: [],
-    value: '',
+    filtered: [],
     carttotal: 0,
     countGoods: 0,
     isNone: true,
@@ -20,6 +21,19 @@ const app = new Vue({
           console.log(error);
         })
     },
+    remove(item) {
+      this.getJson(`${API}DATAbase_clothing-store/deleteFromBasket.json`)
+        .then(data => {
+          if (data.result === 1) {
+            if (item.quantity > 1) {
+              item.quantity--;
+              this.countGoods = -1;
+            } else {
+              this.cartItems.splice(this.cartItems.indexOf(item), 1)
+            }
+          }
+        })
+    },
     addProduct(product) {
       this.getJson(`${API}DATAbase_clothing-store/addToBasket.json`)
         .then(data => {
@@ -27,6 +41,7 @@ const app = new Vue({
             let find = this.cartItems.find(el => el.id === product.id);
             if (find) {
               find.quantity++;
+              this.countGoods = +1;
             } else {
               let prod = Object.assign({ quantity: 1 }, product);
               this.cartItems.push(prod);
@@ -36,36 +51,29 @@ const app = new Vue({
           }
         })
     },
-    filter(value) {
-      const regexp = new RegExp(value, 'i');
-      this.filtered = this.allProducts.filter(product => regexp.test(product.title));
-      this.allProducts.forEach(el => {
-        const block = document.querySelector(`.product-item[data-id="${el.id}"]`);
-        if (!this.filtered.includes(el)) {
-          block.classList.remove('show');
-          block.classList.add('invisible');
-        } else {
-          block.classList.remove('invisible');
-          block.classList.add('show');
-        }
-      })
-    }
+    filter() {
+      let regexp = new RegExp(this.userSearch, 'i');
+      this.filtered = this.products.filter(el => regexp.test(el.title));
+    },
+
+    func_countGoods() {
+      this.getJson(`${API}DATAbase_clothing-store/getBasket.json`)
+        .then(data => {
+          for (let el of data.contents) {
+            this.countGoods += el.quantity
+          }
+        })
+    },
   },
+
   beforeCreate() {
-
   },
-  created() {
-    this.getJson(`${API + this.catalogUrl}`)
-      .then(data => {
-        for (let el of data) {
-          this.products.push(el);
-        }
-      });
 
+  created() {
   },
   beforeMount() {
-
   },
+
   mounted() {
     this.getJson(`${API + this.basketUrl}`)
       .then(data => {
@@ -75,6 +83,16 @@ const app = new Vue({
         this.carttotal = data.amount;
         this.countGoods = data.countGoods;
       });
+
+    this.getJson(`${API + this.catalogUrl}`)
+      .then(data => {
+        for (let el of data) {
+          this.products.push(el);
+          this.filtered.push(el);
+        }
+      });
+    this.func_countGoods(el);
+
   },
   beforeUpdate() {
 
