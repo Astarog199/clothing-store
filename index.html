@@ -13,228 +13,222 @@
 <body>
     <div id="app">
 
-        <header class="head">
-            <div class="head-flex container">
-                <div class="head-left">
-                    <a href="index.html"> <img src="style/img/logo.png" alt="logo"></a>
+<header class="head">
+    <div class="head-flex container">
+        <div class="head-left">
+            <a href="index.html"> <img src="style/img/logo.png" alt="logo"></a>
 
-                    <form action="#" class="search-form" @submit.prevent="filter">
-                        <input type="text" class="search-field" v-model="userSearch">
-                        <button class="btn-search" type="submit">
-                            <i class="fas fa-search"></i>все
-                        </button>
-                    </form>
+
+
+            <some-el></some-el>
+
+        </div>
+
+        <div class="head-right">
+            <a class="IconWrap menu-activ" href="javascript:void(0);" tabindex="1"> <img src="style/img/iconmenu.png"
+                    alt="меню">
+            </a>
+            <div class="box">
+                <h2 class="menu-name">MENU</h2>
+                <div class="item-menu">
+                    <h3 class="item-categories"> MAN </h3>
+                    <a class="item-link" href="katalog.html">Accessories</a>
+                    <a class="item-link" href="#">Bags</a>
+                    <a class="item-link" href="#">Denim</a>
+                    <a class="item-link" href="#">T-Shirts</a>
                 </div>
 
-                <div class="head-right">
-                    <a class="IconWrap menu-activ" href="javascript:void(0);" tabindex="1"> <img
-                            src="style/img/iconmenu.png" alt="меню">
-                    </a>
-                    <div class="box">
-                        <h2 class="menu-name">MENU</h2>
-                        <div class="item-menu">
-                            <h3 class="item-categories"> MAN </h3>
-                            <a class="item-link" href="katalog.html">Accessories</a>
-                            <a class="item-link" href="#">Bags</a>
-                            <a class="item-link" href="#">Denim</a>
-                            <a class="item-link" href="#">T-Shirts</a>
-                        </div>
+                <div class="item-menu">
+                    <h3 class="item-categories"> WOMAN </h3>
+                    <a class="item-link" href="#">Accessories</a>
+                    <a class="item-link" href="#">Bags</a>
+                    <a class="item-link" href="#">Denim</a>
+                    <a class="item-link" href="#">T-Shirts</a>
+                </div>
 
-                        <div class="item-menu">
-                            <h3 class="item-categories"> WOMAN </h3>
-                            <a class="item-link" href="#">Accessories</a>
-                            <a class="item-link" href="#">Bags</a>
-                            <a class="item-link" href="#">Denim</a>
-                            <a class="item-link" href="#">T-Shirts</a>
-                        </div>
-
-                        <div class="item-menu">
-                            <h3 class="item-categories"> KIDS </h3>
-                            <a class="item-link" href="#">Accessories</a>
-                            <a class="item-link" href="#">Bags</a>
-                            <a class="item-link" href="#">Denim</a>
-                            <a class="item-link" href="#">T-Shirts</a>
-                        </div>
-                    </div>
-
-                    <a class="IconWrap" href="cabinet.html"> <img src="style/img/icon.png" alt="Personal Area"></a>
-
-                    <span class="IconWrap cartIcon">
-                        <a class="" href="cart.html"> <img src="style/img/icon2.png" alt="basket"></a>
-                        <span @click="isNone=!isNone"> {{countGoods}}</span>
-                    </span>
-
-                    <div class="basket" :class="{ hidden: isNone, show:!isNone}">
-                        <div class="basketRow basketHeader">
-                            <div>Фото товара</div>
-                            <div>Название товара</div>
-                            <div>Количество</div>
-                            <div>Цена за шт.</div>
-                            <div>Итого</div>
-                        </div>
-
-                        <div class="basketRow" v-for="Item_header of cartItems" :key="Item_header.id">
-                            <div> <img class="Item_header_pictures" :src=Item_header.foto alt="Some image"> </div>
-                            <div>
-                                <p>{{Item_header.title}}</p>
-                            </div>
-                            <div> <span class="productCount">{{Item_header.quantity}}</span> шт. </div>
-                            <div>${{Item_header.price}}</div>
-                            <div>
-                                $<span class="productTotalRow">{{Item_header.quantity * Item_header.price}}</span>
-                            </div>
-                        </div>
-
-
-                        <div class="basketTotal">
-                            Товаров в корзине на сумму:
-                            $<span class="basketTotalValue">{{carttotal}}</span>
-                        </div>
-                    </div>
+                <div class="item-menu">
+                    <h3 class="item-categories"> KIDS </h3>
+                    <a class="item-link" href="#">Accessories</a>
+                    <a class="item-link" href="#">Bags</a>
+                    <a class="item-link" href="#">Denim</a>
+                    <a class="item-link" href="#">T-Shirts</a>
                 </div>
             </div>
-        </header>
-        <div class="banner">
-            <div class="container title">
-                <div class="element-title">
-                    <div class="name">
-                        <p class="h-title">THE BRAND</p>
-                        <p class="p-title"> OF LUXERIOUS <a class="but-title" href="#">FASHION</a></p>
+
+            <a class="IconWrap" href="cabinet.html"> <img src="style/img/icon.png" alt="Personal Area"></a>
+
+            <span class="IconWrap cartIcon">
+                <a class="" href="cart.html"> <img src="style/img/icon2.png" alt="basket"></a>
+                <span @click="isNone=!isNone"> {{countGoods}}</span>
+            </span>
+
+            <div class="basket" :class="{ hidden: isNone, show:!isNone}">
+                <div class="basketRow basketHeader">
+                    <div>Фото товара</div>
+                    <div>Название товара</div>
+                    <div>Количество</div>
+                    <div>Цена за шт.</div>
+                    <div>Итого</div>
+                </div>
+
+                <div class="basketRow" v-for="Item_header of cartItems" :key="Item_header.id">
+                    <div> <img class="Item_header_pictures" :src=Item_header.foto alt="Some image"> </div>
+                    <div>
+                        <p>{{Item_header.title}}</p>
                     </div>
+                    <div> <span class="productCount">{{Item_header.quantity}}</span> шт. </div>
+                    <div>${{Item_header.price}}</div>
+                    <div>
+                        $<span class="productTotalRow">{{Item_header.quantity * Item_header.price}}</span>
+                    </div>
+                </div>
+
+
+                <div class="basketTotal">
+                    Товаров в корзине на сумму:
+                    $<span class="basketTotalValue">{{carttotal}}</span>
                 </div>
             </div>
         </div>
-
-        <div class="container">
-
-            <div class="content">
-
-                <div class="card-content items">
-                    <p class="text-card">30% OFF</p>
-                    <a class="but-card" href="#">ACCESORIES</a>
-                </div>
-
-                <div class="card-content items2">
-                    <p class="text-card">HOT DEAL</p>
-                    <a class="but-card" href="#">ACCESORIES</a>
-                </div>
-
-                <div class="card-content items3">
-                    <p class="text-card">NEW ARRIVALS</p>
-                    <a class="but-card" href="#">ACCESORIES</a>
+    </div>
+</header>
+    <div class="banner">
+        <div class="container title">
+            <div class="element-title">
+                <div class="name">
+                    <p class="h-title">THE BRAND</p>
+                    <p class="p-title"> OF LUXERIOUS <a class="but-title" href="#">FASHION</a></p>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <div class="card-content items4">
-                <p class="text-card">LUXIROUS & TRENDY</p>
+    <div class="container">
+
+        <div class="content">
+
+            <div class="card-content items">
+                <p class="text-card">30% OFF</p>
+                <a class="but-card" href="#">ACCESORIES</a>
+            </div>
+
+            <div class="card-content items2">
+                <p class="text-card">HOT DEAL</p>
+                <a class="but-card" href="#">ACCESORIES</a>
+            </div>
+
+            <div class="card-content items3">
+                <p class="text-card">NEW ARRIVALS</p>
                 <a class="but-card" href="#">ACCESORIES</a>
             </div>
         </div>
 
-        <section class="container products">
-            <h2 class="h2-products">Fetured Items</h2>
-            <p class="p-products">Shop for items based on what we featured in this week</p>
+        <div class="card-content items4">
+            <p class="text-card">LUXIROUS & TRENDY</p>
+            <a class="but-card" href="#">ACCESORIES</a>
+        </div>
+    </div>
 
-            <div class="katalog">
-                <div class="card-products" v-for="product of products" :key="product.id">
-                    <div class="card">
-                        <div>
-                            <a class="card-link" href="product.html">
-                                <img class="card-img" :src=product.foto alt="товар">
-                            </a>
-                        </div>
-                        <div class="add-to-cart">
-                            <span class="ButToCard" @click="addProduct(product)"> <img src="./style/img/icon2.png"
-                                    alt="add-to-cart"> &nbsp Add to
-                                Cart</span>
-                        </div>
+    <section class="container products">
+        <h2 class="h2-products">Fetured Items</h2>
+        <p class="p-products">Shop for items based on what we featured in this week</p>
+
+        <div class="katalog">
+            <div class="card-products" v-for="product of products" :key="product.id">
+                <div class="card">
+                    <div>
+                        <a class="card-link" href="product.html">
+                            <img class="card-img" :src=product.foto alt="товар">
+                        </a>
                     </div>
-                    <div class="card-text">
-                        <h1 class="h1-products">{{product.title}}</h1>
-                        <p class="p-cci">{{product.text}}</p>
-                        <br>
-                        <p class="price"> $ {{product.price}} </p>
+                    <div class="add-to-cart">
+                        <span class="ButToCard" @click="addProduct(product)"> <img src="./style/img/icon2.png" alt="add-to-cart"> &nbsp Add to
+                            Cart</span>
                     </div>
                 </div>
-            </div>
-            <div class="gg">
-                <a class="but-product" href="katalog.html">Browse All Product</a>
-            </div>
-        </section>
-
-        <div class="footer">
-            <div class="container footer-head">
-
-                <div class="service-1">
-                    <img src="./style/img/footer1.png" alt="picture">
-                    <h4 class="h4-footer-head">Free Delivery</h4>
-                    <p class="p-footer">Worldwide delivery on&nbsp;all. Authorit tively morph <nobr> <br>
-                            next-generation</nobr> innov tion with extensive models.</p>
-                </div>
-
-                <div class="service-1">
-                    <img src="./style/img/footer3.png" alt="picture">
-                    <h4 class="h4-footer-head">Sales & discounts</h4>
-                    <p class="p-footer">Worldwide delivery on&nbsp;all. Authorit tively morph <nobr> <br>
-                            next-generation</nobr> innov tion with extensive models.</p>
-                </div>
-
-                <div class="service-1">
-                    <img src="./style/img/footer2.png" alt="picture">
-                    <h4 class="h4-footer-head">Quality assurance</h4>
-                    <p class="p-footer">Worldwide delivery on&nbsp;all. Authorit tively morph <nobr> <br>
-                            next-generation</nobr> innov tion with extensive models.</p>
-                </div>
-
-            </div>
-            <div class="footer-content">
-                <div class="footer-content2">
-                    <div class="container footer-content3">
-                        <div class="persona">
-                            <img src="./style/img/Intersect.png" alt="">
-                            <p class="p-persona">&laquo;Vestibulum quis porttitor dui! Quisque <br>
-                                viverra nunc mi, a&nbsp;pulvinar purus <br>
-                                condimentum&raquo;</p>
-                        </div>
-
-                        <div class="subscribe">
-                            <h4 class="h4-sub">SUBSCRIBE</h4>
-                            <p class="p-sub"> FOR OUR NEWLETTER AND PROMOTION</p>
-                            <div class="block-button-subscribe">
-                                <input class="input-footer" type="email" placeholder="Enter Your Email">
-                                <div class="bb">
-                                    <a class="but-sub" href="#">Subscribe</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container footer-copyright">
-
-                <div>
-                    <p class="copyright"> © 2021 Brand All Rights Reserved.</p>
-                    <img src="img/" alt=""> <a class="Button-ONLINE-SERVICE" href="https://gb.ru/" target="_blank"></a>
-                </div>
-                <div class="href-fot">
-                    <a class="icon-fot" href="https://www.facebook.com/"> <img src="./style/img/href/facebook.png"
-                            alt="facebook">
-                    </a>
-                    <a class="icon-fot" href="https://www.instagram.com/"> <img src="./style/img/href/instagram.png"
-                            alt="instagram"> </a>
-                    <a class="icon-fot" href="https://www.pinterest.ru/"> <img src="./style/img/href/pinterest.png"
-                            alt="pinterest">
-                    </a>
-                    <a class="icon-fot" href="https://twitter.com/"> <img src="./style/img/href/twitter .png"
-                            alt="twitter"> </a>
+                <div class="card-text">
+                    <h1 class="h1-products">{{product.title}}</h1>
+                    <p class="p-cci">{{product.text}}</p>
+                    <br>
+                    <p class="price"> $ {{product.price}} </p>
                 </div>
             </div>
         </div>
+        <div class="gg">
+            <a class="but-product" href="katalog.html">Browse All Product</a>
+        </div>
+    </section>
+
+<div class="footer">
+    <div class="container footer-head">
+
+        <div class="service-1">
+            <img src="./style/img/footer1.png" alt="picture">
+            <h4 class="h4-footer-head">Free Delivery</h4>
+            <p class="p-footer">Worldwide delivery on&nbsp;all. Authorit tively morph <nobr> <br>
+                    next-generation</nobr> innov tion with extensive models.</p>
+        </div>
+
+        <div class="service-1">
+            <img src="./style/img/footer3.png" alt="picture">
+            <h4 class="h4-footer-head">Sales & discounts</h4>
+            <p class="p-footer">Worldwide delivery on&nbsp;all. Authorit tively morph <nobr> <br>
+                    next-generation</nobr> innov tion with extensive models.</p>
+        </div>
+
+        <div class="service-1">
+            <img src="./style/img/footer2.png" alt="picture">
+            <h4 class="h4-footer-head">Quality assurance</h4>
+            <p class="p-footer">Worldwide delivery on&nbsp;all. Authorit tively morph <nobr> <br>
+                    next-generation</nobr> innov tion with extensive models.</p>
+        </div>
 
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="JavaScript/ProductDTO.js"></script>
-    <script src="JavaScript/app.js"></script>
+    <div class="footer-content">
+        <div class="footer-content2">
+            <div class="container footer-content3">
+                <div class="persona">
+                    <img src="./style/img/Intersect.png" alt="">
+                    <p class="p-persona">&laquo;Vestibulum quis porttitor dui! Quisque <br>
+                        viverra nunc mi, a&nbsp;pulvinar purus <br>
+                        condimentum&raquo;</p>
+                </div>
+
+                <div class="subscribe">
+                    <h4 class="h4-sub">SUBSCRIBE</h4>
+                    <p class="p-sub"> FOR OUR NEWLETTER AND PROMOTION</p>
+                    <div class="block-button-subscribe">
+                        <input class="input-footer" type="email" placeholder="Enter Your Email">
+                        <div class="bb">
+                            <a class="but-sub" href="#">Subscribe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container footer-copyright">
+
+        <div>
+            <p class="copyright"> © 2021 Brand All Rights Reserved.</p>
+            <img src="img/" alt=""> <a class="Button-ONLINE-SERVICE" href="https://gb.ru/" target="_blank"></a>
+        </div>
+        <div class="href-fot">
+            <a class="icon-fot" href="https://www.facebook.com/"> <img src="./style/img/href/facebook.png" alt="facebook">
+            </a>
+            <a class="icon-fot" href="https://www.instagram.com/"> <img src="./style/img/href/instagram.png"
+                    alt="instagram"> </a>
+            <a class="icon-fot" href="https://www.pinterest.ru/"> <img src="./style/img/href/pinterest.png" alt="pinterest">
+            </a>
+            <a class="icon-fot" href="https://twitter.com/"> <img src="./style/img/href/twitter .png" alt="twitter"> </a>
+        </div>
+    </div>
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="JavaScript/main.js"></script>
+<script src="JavaScript/component.js"></script>
 </body>
 
 </html>
