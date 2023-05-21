@@ -58,6 +58,27 @@
   width: 232px;
 }
 
+.head-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.head-left .search-form {
+  margin-left: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.head-left .btn-search {
+  background: none;
+  border: none;
+}
+.head-left .search-field {
+  background: #222222;
+  color: white;
+  border: none;
+}
+
 .menu-activ:active ~ .box,
 .menu-activ:focus ~ .box,
 .box:hover {

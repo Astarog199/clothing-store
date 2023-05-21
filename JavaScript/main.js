@@ -27,7 +27,7 @@ const app = new Vue({
           if (data.result === 1) {
             if (item.quantity > 1) {
               item.quantity--;
-              this.countGoods = -1;
+              this.countGoods  --;
             } else {
               this.cartItems.splice(this.cartItems.indexOf(item), 1)
             }
@@ -41,7 +41,7 @@ const app = new Vue({
             let find = this.cartItems.find(el => el.id === product.id);
             if (find) {
               find.quantity++;
-              this.countGoods = +1;
+              this.countGoods ++;
             } else {
               let prod = Object.assign({ quantity: 1 }, product);
               this.cartItems.push(prod);
@@ -54,6 +54,16 @@ const app = new Vue({
     filter() {
       let regexp = new RegExp(this.userSearch, 'i');
       this.filtered = this.products.filter(el => regexp.test(el.title));
+      this.products.forEach(el => {
+        const block = document.querySelector(`.card-products[data-id="${el.id}"]`);
+        if (!this.filtered.includes(el)) {
+          block.classList.remove('show');
+          block.classList.add('hidden');
+        } else {
+          block.classList.remove('hidden');
+          block.classList.add('show');
+        }
+      })
     },
 
     func_countGoods() {
@@ -89,10 +99,9 @@ const app = new Vue({
         for (let el of data) {
           this.products.push(el);
           this.filtered.push(el);
+          console.log(this.filtered);
         }
       });
-    this.func_countGoods(el);
-
   },
   beforeUpdate() {
 

@@ -38,6 +38,24 @@
     width: 232px;
 }
 
+.head-left{
+display: flex;
+    .search-form{
+        margin-left: 40px;
+        display: flex;
+    }
+    .btn-search{
+        background: none;
+        border: none;
+    }
+    .search-field{
+        background: #222222;
+        color: white;
+        border: none;
+    }
+}
+
+
 .menu-activ:active~.box,
 .menu-activ:focus~.box,
 .box:hover {

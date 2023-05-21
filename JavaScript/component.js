@@ -13,8 +13,5 @@ Vue.component('some-el', {
     mounted() {
         console.log('components', this);
     },
-    template: `<form action="#" class="search-form" @submit.prevent="filter">
-                <input type="text" v-model="userSearch">
-                <button type="submit">найти</button>
-                </form>`,
+    template: ``,
 })

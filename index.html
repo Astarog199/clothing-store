@@ -18,9 +18,14 @@
         <div class="head-left">
             <a href="index.html"> <img src="style/img/logo.png" alt="logo"></a>
 
+            <form action="#" class="search-form" @submit.prevent="filter">
+                <button class="btn-search" type="submit">
+                    <img src="style/img/search.png" alt="search">
+                </button>
+                <input type="text" class="search-field" v-model="userSearch">
+            </form>
 
 
-            <some-el></some-el>
 
         </div>
 
@@ -134,7 +139,7 @@
         <p class="p-products">Shop for items based on what we featured in this week</p>
 
         <div class="katalog">
-            <div class="card-products" v-for="product of products" :key="product.id">
+            <div class="card-products" v-for="product of products" :key="product.id" :data-id=product.id>
                 <div class="card">
                     <div>
                         <a class="card-link" href="product.html">
