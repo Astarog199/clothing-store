@@ -4,11 +4,8 @@ const app = new Vue({
   el: '#app',
   data: {
     userSearch: '',
-    catalogUrl: "DATAbase_clothing-store/catalogDATA.json",
     basketUrl: "DATAbase_clothing-store/getBasket.json",
-    products: [],
     cartItems: [],
-    filtered: [],
     carttotal: 0,
     countGoods: 0,
     isNone: true,
@@ -27,7 +24,7 @@ const app = new Vue({
           if (data.result === 1) {
             if (item.quantity > 1) {
               item.quantity--;
-              this.countGoods  --;
+              this.countGoods--;
             } else {
               this.cartItems.splice(this.cartItems.indexOf(item), 1)
             }
@@ -41,7 +38,7 @@ const app = new Vue({
             let find = this.cartItems.find(el => el.id === product.id);
             if (find) {
               find.quantity++;
-              this.countGoods ++;
+              this.countGoods++;
             } else {
               let prod = Object.assign({ quantity: 1 }, product);
               this.cartItems.push(prod);
@@ -51,20 +48,7 @@ const app = new Vue({
           }
         })
     },
-    filter() {
-      let regexp = new RegExp(this.userSearch, 'i');
-      this.filtered = this.products.filter(el => regexp.test(el.title));
-      this.products.forEach(el => {
-        const block = document.querySelector(`.card-products[data-id="${el.id}"]`);
-        if (!this.filtered.includes(el)) {
-          block.classList.remove('show');
-          block.classList.add('hidden');
-        } else {
-          block.classList.remove('hidden');
-          block.classList.add('show');
-        }
-      })
-    },
+
 
     func_countGoods() {
       this.getJson(`${API}DATAbase_clothing-store/getBasket.json`)
@@ -94,14 +78,7 @@ const app = new Vue({
         this.countGoods = data.countGoods;
       });
 
-    this.getJson(`${API + this.catalogUrl}`)
-      .then(data => {
-        for (let el of data) {
-          this.products.push(el);
-          this.filtered.push(el);
-          console.log(this.filtered);
-        }
-      });
+
   },
   beforeUpdate() {
 

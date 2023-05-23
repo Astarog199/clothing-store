@@ -13,80 +13,61 @@
 <body>
     <div id="app">
 
-    <!-- @import header.html -->
+        <!-- @import header.html -->
 
-    <div class="banner">
-        <div class="container title">
-            <div class="element-title">
-                <div class="name">
-                    <p class="h-title">THE BRAND</p>
-                    <p class="p-title"> OF LUXERIOUS <a class="but-title" href="#">FASHION</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-
-        <div class="content">
-
-            <div class="card-content items">
-                <p class="text-card">30% OFF</p>
-                <a class="but-card" href="#">ACCESORIES</a>
-            </div>
-
-            <div class="card-content items2">
-                <p class="text-card">HOT DEAL</p>
-                <a class="but-card" href="#">ACCESORIES</a>
-            </div>
-
-            <div class="card-content items3">
-                <p class="text-card">NEW ARRIVALS</p>
-                <a class="but-card" href="#">ACCESORIES</a>
-            </div>
-        </div>
-
-        <div class="card-content items4">
-            <p class="text-card">LUXIROUS & TRENDY</p>
-            <a class="but-card" href="#">ACCESORIES</a>
-        </div>
-    </div>
-
-    <section class="container products">
-        <h2 class="h2-products">Fetured Items</h2>
-        <p class="p-products">Shop for items based on what we featured in this week</p>
-
-        <div class="katalog">
-            <div class="card-products" v-for="product of products" :key="product.id">
-                <div class="card">
-                    <div>
-                        <a class="card-link" href="product.html">
-                            <img class="card-img" :src=product.foto alt="товар">
-                        </a>
-                    </div>
-                    <div class="add-to-cart">
-                        <span class="ButToCard" @click="addProduct(product)"> <img src="./style/img/icon2.png" alt="add-to-cart"> &nbsp Add to
-                            Cart</span>
+        <div class="banner">
+            <div class="container title">
+                <div class="element-title">
+                    <div class="name">
+                        <p class="h-title">THE BRAND</p>
+                        <p class="p-title"> OF LUXERIOUS <a class="but-title" href="#">FASHION</a></p>
                     </div>
                 </div>
-                <div class="card-text">
-                    <h1 class="h1-products">{{product.title}}</h1>
-                    <p class="p-cci">{{product.text}}</p>
-                    <br>
-                    <p class="price"> $ {{product.price}} </p>
-                </div>
             </div>
         </div>
-        <div class="gg">
-            <a class="but-product" href="katalog.html">Browse All Product</a>
-        </div>
-    </section>
 
-    <!-- @import footer.html -->
-</div>
-<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-<script src="JavaScript/main.js"></script>
-<script src="JavaScript/component.js"></script>
+        <div class="container">
+
+            <div class="content">
+
+                <div class="card-content items">
+                    <p class="text-card">30% OFF</p>
+                    <a class="but-card" href="#">ACCESORIES</a>
+                </div>
+
+                <div class="card-content items2">
+                    <p class="text-card">HOT DEAL</p>
+                    <a class="but-card" href="#">ACCESORIES</a>
+                </div>
+
+                <div class="card-content items3">
+                    <p class="text-card">NEW ARRIVALS</p>
+                    <a class="but-card" href="#">ACCESORIES</a>
+                </div>
+            </div>
+
+            <div class="card-content items4">
+                <p class="text-card">LUXIROUS & TRENDY</p>
+                <a class="but-card" href="#">ACCESORIES</a>
+            </div>
+        </div>
+
+        <section class="container products">
+            <h2 class="h2-products">Fetured Items</h2>
+            <p class="p-products">Shop for items based on what we featured in this week</p>
+
+            <katalog class="katalog" ref="katalog"> <!-- Список товаров --> </katalog>
+
+            <div class="gg">
+                <a class="but-product" href="katalog.html">Browse All Product</a>
+            </div>
+        </section>
+
+        <!-- @import footer.html -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="JavaScript/main.js"></script>
+    <script src="JavaScript/component.js"></script>
 </body>
 
 </html>
