@@ -22,9 +22,6 @@
                 </button>
                 <input type="text" class="search-field" v-model="userSearch">
             </form>
-
-
-
         </div>
 
         <div class="head-right">
@@ -60,38 +57,11 @@
 
             <a class="IconWrap" href="cabinet.html"> <img src="style/img/icon.png" alt="Personal Area"></a>
 
-            <span class="IconWrap cartIcon">
-                <a class="" href="cart.html"> <img src="style/img/icon2.png" alt="basket"></a>
-                <span @click="isNone=!isNone"> {{countGoods}}</span>
-            </span>
+            <cart_head ref='cart_head'>
 
-            <div class="basket" :class="{ hidden: isNone, show:!isNone}">
-                <div class="basketRow basketHeader">
-                    <div>Фото товара</div>
-                    <div>Название товара</div>
-                    <div>Количество</div>
-                    <div>Цена за шт.</div>
-                    <div>Итого</div>
-                </div>
-
-                <div class="basketRow" v-for="Item_header of cartItems" :key="Item_header.id">
-                    <div> <img class="Item_header_pictures" :src=Item_header.foto alt="Some image"> </div>
-                    <div>
-                        <p>{{Item_header.title}}</p>
-                    </div>
-                    <div> <span class="productCount">{{Item_header.quantity}}</span> шт. </div>
-                    <div>${{Item_header.price}}</div>
-                    <div>
-                        $<span class="productTotalRow">{{Item_header.quantity * Item_header.price}}</span>
-                    </div>
-                </div>
+            </cart_head>
 
 
-                <div class="basketTotal">
-                    Товаров в корзине на сумму:
-                    $<span class="basketTotalValue">{{carttotal}}</span>
-                </div>
-            </div>
         </div>
     </div>
 </header>
@@ -104,26 +74,13 @@
         <div class="cart flex container">
 
             <div class="cart-left">
-                <div v-for="Item of cartItems" :key="Item.id">
-                    <div class="lot">
-                        <img class="img" :src=Item.foto alt="img">
-                        <div class="lot-specification">
-                            <p class="lot-h">{{Item.title}} <br> T-SHIRT</p>
-                            <p class="lot-p">Price: ${{Item.price}} </p>
-                            <p class="lot-p">Color: Red</p>
-                            <p class="lot-p">Size: Xl </p>
-                            <p class="lot-p">Quantity: {{Item.quantity}} </p>
-                            <button class="del-btn" @click="remove(Item)">delete</button>
-                        </div>
-                    </div>
-                </div>
+                <cart ref="cart"> <!-- Корзина товаров --> </cart>
 
                 <div class="flex">
                     <button class="cart-But" type="#">CLEAR SHOPPING CART</button>
                     <button class="cart-But" type="#">CONTINUE SHOPPING</button>
                 </div>
             </div>
-
             <div class="cart-right">
 
                 <div class="right-block-top">
@@ -135,7 +92,6 @@
                     </form>
                     <button class="cart-ButRight" type="#">GET A QUOTE</button>
                 </div>
-
 
                 <div class="pay">
                     <form action="#">
@@ -220,8 +176,9 @@
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="JavaScript/Coponent_Cart.js"></script>
+    <script src="JavaScript/Component_Katalog.js"></script>
     <script src="JavaScript/main.js"></script>
-    <script src="JavaScript/component.js"></script>
 </body>
 
 </html>

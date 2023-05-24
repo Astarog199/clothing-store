@@ -203,6 +203,7 @@
   color: #ffffff;
   padding: 13px;
   border: 1px solid #ffffff;
+  cursor: pointer;
 }
 
 .card-text {

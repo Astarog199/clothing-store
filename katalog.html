@@ -23,9 +23,6 @@
                 </button>
                 <input type="text" class="search-field" v-model="userSearch">
             </form>
-
-
-
         </div>
 
         <div class="head-right">
@@ -61,38 +58,11 @@
 
             <a class="IconWrap" href="cabinet.html"> <img src="style/img/icon.png" alt="Personal Area"></a>
 
-            <span class="IconWrap cartIcon">
-                <a class="" href="cart.html"> <img src="style/img/icon2.png" alt="basket"></a>
-                <span @click="isNone=!isNone"> {{countGoods}}</span>
-            </span>
+            <cart_head ref='cart_head'>
 
-            <div class="basket" :class="{ hidden: isNone, show:!isNone}">
-                <div class="basketRow basketHeader">
-                    <div>Фото товара</div>
-                    <div>Название товара</div>
-                    <div>Количество</div>
-                    <div>Цена за шт.</div>
-                    <div>Итого</div>
-                </div>
-
-                <div class="basketRow" v-for="Item_header of cartItems" :key="Item_header.id">
-                    <div> <img class="Item_header_pictures" :src=Item_header.foto alt="Some image"> </div>
-                    <div>
-                        <p>{{Item_header.title}}</p>
-                    </div>
-                    <div> <span class="productCount">{{Item_header.quantity}}</span> шт. </div>
-                    <div>${{Item_header.price}}</div>
-                    <div>
-                        $<span class="productTotalRow">{{Item_header.quantity * Item_header.price}}</span>
-                    </div>
-                </div>
+            </cart_head>
 
 
-                <div class="basketTotal">
-                    Товаров в корзине на сумму:
-                    $<span class="basketTotalValue">{{carttotal}}</span>
-                </div>
-            </div>
         </div>
     </div>
 </header>
