@@ -16,12 +16,10 @@
         <div class="head-left">
             <a href="index.html"> <img src="style/img/logo.png" alt="logo"></a>
 
-            <form action="#" class="search-form" @submit.prevent="filter">
-                <button class="btn-search" type="submit">
-                    <img src="style/img/search.png" alt="search">
-                </button>
-                <input type="text" class="search-field" v-model="userSearch">
-            </form>
+            <filter_block ref="filter_block">
+
+
+            </filter_block>
         </div>
 
         <div class="head-right">
@@ -175,6 +173,7 @@
     </div>
 </div>    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="JavaScript/Coponent_Cart.js"></script>
+    <script src="JavaScript/Component_cart_head_item.js"></script>
     <script src="JavaScript/Component_Katalog.js"></script>
     <script src="JavaScript/main.js"></script>
 </body>

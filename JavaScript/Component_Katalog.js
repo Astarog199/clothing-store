@@ -4,6 +4,7 @@ Vue.component('katalog', {
             catalogUrl: "DATAbase_clothing-store/catalogDATA.json",
             products: [],
             filtered: [],
+            userSearch: this.userSearch
         };
     },
     methods: {
@@ -21,6 +22,15 @@ Vue.component('katalog', {
                 }
             })
         },
+
+        //     func_countGoods() {
+        //     this.getJson(`${API}DATAbase_clothing-store/getBasket.json`)
+        //     .then(data => {
+        //       for (let el of data.contents) {
+        //         this.countGoods += el.quantity
+        //       }
+        //     })
+        // },
     },
     computed: {
 
@@ -52,7 +62,7 @@ Vue.component('product', {
             </a>
         </div>
         <div class="add-to-cart">
-            <span class="ButToCard" @click="$root.$refs.cart.addProduct(product)"> <img src="./style/img/icon2.png" alt="add-to-cart"> &nbsp Add to
+            <span class="ButToCard" @click="$root.$refs.cart_head.addProduct(product)"> <img src="./style/img/icon2.png" alt="add-to-cart"> &nbsp Add to
                 Cart</span>
         </div>
     </div>
@@ -66,3 +76,16 @@ Vue.component('product', {
 </div>
 `
 });
+
+Vue.component('filter_block', {
+    props: ['filtered', 'userSearch'],
+    template: `
+<div>
+    <form action="#" class="search-form" @submit.prevent="filter">
+        <button class="btn-search" type="submit">
+            <img src="style/img/search.png" alt="search">
+        </button>
+        <input type="text" class="search-field" v-model="userSearch">
+    </form>
+</div>`
+})

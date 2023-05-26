@@ -15,12 +15,10 @@
         <div class="head-left">
             <a href="index.html"> <img src="style/img/logo.png" alt="logo"></a>
 
-            <form action="#" class="search-form" @submit.prevent="filter">
-                <button class="btn-search" type="submit">
-                    <img src="style/img/search.png" alt="search">
-                </button>
-                <input type="text" class="search-field" v-model="userSearch">
-            </form>
+            <filter_block ref="filter_block">
+
+
+            </filter_block>
         </div>
 
         <div class="head-right">

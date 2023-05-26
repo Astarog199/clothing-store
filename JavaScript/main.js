@@ -13,14 +13,6 @@ const app = new Vue({
           console.log(error);
         })
     },
-    // func_countGoods() {
-    //   this.getJson(`${API}DATAbase_clothing-store/getBasket.json`)
-    //     .then(data => {
-    //       for (let el of data.contents) {
-    //         this.countGoods += el.quantity
-    //       }
-    //     })
-    // },
   },
   beforeCreate() {
   },
