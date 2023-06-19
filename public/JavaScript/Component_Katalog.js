@@ -1,7 +1,7 @@
 Vue.component('katalog', {
     data() {
         return {
-            catalogUrl: "DATAbase_clothing-store/catalogDATA.json",
+            catalogUrl: "",//DATAbase_clothing-store/catalogDATA.json
             products: [],
             filtered: [],
             userSearch: this.userSearch
@@ -36,7 +36,7 @@ Vue.component('katalog', {
 
     },
     mounted() {
-        this.$parent.getJson(`${API + this.catalogUrl}`) // parent == main.js
+        this.$parent.getJson(`/api/katalog`) // parent == main.js
             .then(data => {
                 for (let el of data) {
                     this.products.push(el);

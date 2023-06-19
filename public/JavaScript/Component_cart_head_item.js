@@ -1,7 +1,7 @@
 Vue.component('cart_head', {
     data() {
         return {
-            basketUrl: "DATAbase_clothing-store/getBasket.json",
+            basketUrl: "",
             cartItems: [],
             carttotal: 0,
             countGoods: 0,
@@ -10,7 +10,7 @@ Vue.component('cart_head', {
     },
     methods: {
         addProduct(product) {
-            this.$parent.getJson(`${API}DATAbase_clothing-store/addToBasket.json`)
+            this.$parent.getJson(`/api/cart`)
                 .then(data => {
                     if (data.result === 1) {
                         this.countGoods++;
@@ -42,7 +42,7 @@ Vue.component('cart_head', {
     },
 
     mounted() {
-        this.$parent.getJson(`${API + this.basketUrl}`)
+        this.$parent.getJson(`/api/cart`)
             .then(data => {
                 for (let el of data.contents) {
                     this.cartItems.push(el);
