@@ -7,34 +7,38 @@ Vue.component('cart', {
     },
     methods: {
         addProduct(product) {
-            this.$parent.getJson(`/api/cart`)
-                .then(data => {
-                    if (data.result === 1) {
-                        let find = this.cartItems.find(el => el.id === product.id);
-                        if (find) {
-                            find.quantity++;
-                        } else {
-                            let prod = Object.assign({ quantity: 1 }, product);
+            let find = this.cartItems.find(el => el.id === product.id);
+            if (find) {
+                this.$parent.putJson(`/api/cart/${find.id}`, { quantity: 1 });
+                find.quantity++;
+            } else {
+                let prod = Object.assign({ quantity: 1 }, product);
+                this.$parent.postJson('/api/cart', prod)
+                    .then(data => {
+                        if (data.result === 1) {
                             this.cartItems.push(prod);
                         }
-                    } else {
-                        alert('Error');
-                    }
-                })
+                    })
+            }
         },
 
         remove(item) {
-            this.$parent.getJson(`${API}DATAbase_clothing-store/deleteFromBasket.json`)
-                .then(data => {
-                    if (data.result === 1) {
-                        // this.countGoods--;
-                        if (item.quantity > 1) {
+            if (item.quantity > 1) {
+                this.$parent.putJson(`/api/cart/${item.id}`, { quantity: -1 })
+                    .then(data => {
+                        if (data.result === 1) {
                             item.quantity--;
-                        } else {
-                            this.cartItems.splice(this.cartItems.indexOf(item), 1)
+                            console.log(this.cartItems.indexOf(item));
                         }
-                    }
-                })
+                    });
+            } else {
+                this.$parent.deleteJson(`/api/cart/${item.id}`)
+                    .then(data => {
+                        if (data.result === 1) {
+                            this.cartItems.splice(this.cartItems.indexOf(item), 1);
+                        }
+                    });
+            }
         },
     },
 

@@ -88,6 +88,7 @@ const app = new Vue({
   beforeMount() {
   },
   mounted() {
+    console.log(this);
   },
   beforeUpdate() {
   },
@@ -97,4 +98,4 @@ const app = new Vue({
   },
   destroyed() {
   }
-})
+});

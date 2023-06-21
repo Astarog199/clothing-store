@@ -1,6 +1,8 @@
 const express = require('express'); //подключаем модуль express
+const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express(); //записываем в переменную основные методы express
+app.use(bodyParser.json());
 
 app.use(express.json());
 app.use('/', express.static('./public'));
@@ -21,7 +23,6 @@ app.get('/api/katalog', (req, res) => {
         else res.send(data);
     });
 });
-
 
 app.get('/api/cart', (req, res) => {
     fs.readFile('./server/db/getBasket.json', 'utf-8', (err, data) => {
@@ -45,19 +46,36 @@ app.post('/api/cart', (req, res) => {
     });
 });
 
+app.delete('/api/cart', (req, res) => {
+    fs.readFile('./server/db/getBasket.json', 'utf-8', (err, data) => {
+        if (err) res.send({ result: 0, text: err });
+        else {
+            const cart = JSON.parse(data);
+            cart.contents.splice(req.body);
+
+            fs.writeFile('./server/db/getBasket.json', JSON.stringify(cart), (err) => {
+                if (err) res.send({ result: 0, text: err });
+                else res.send({ result: 1 });
+            });
+        }
+    });
+});
+
 app.put('/api/cart/:id', (req, res) => {
     fs.readFile('./server/db/getBasket.json', 'utf-8', (err, data) => {
         if (err) res.send({ result: 0, text: err });
         else {
             const cart = JSON.parse(data);
             const find = cart.contents.find((good) => {
-                return good.id_product === +req.params.id;
+                return good.id === +req.params.id;
             });
-            find.quantity++;
+            find.quantity += req.body.quantity;
 
-            fs.writeFile('./server/db/getBasket.json', JSON.stringify(cart), (err) => {
-                if (err) res.send({ result: 0, text: err });
-                else res.send({ result: 1 });
+            fs.writeFile('./server/db/getBasket.json', JSON.stringify(cart, null), (err) => {
+                if (err) {
+                    res.send({ result: 0, text: err })
+                    res.sendStatus(404, JSON.stringify({ result: 0, text: err }))
+                } else res.send({ result: 1 });
             });
         }
     });
