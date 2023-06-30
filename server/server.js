@@ -1,11 +1,14 @@
 const express = require('express'); //подключаем модуль express
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const cartRouter = require('./cartRouter');
 const app = express(); //записываем в переменную основные методы express
 app.use(bodyParser.json());
+const path = require('path');
 
 app.use(express.json());
-app.use('/', express.static('./public'));
+app.use('/', express.static(path.resolve(__dirname, '../public')));
+app.use('/api/cart', cartRouter);
 
 /**
  * @param req объект о котором хранится информация о запросе (request)
@@ -16,68 +19,12 @@ app.use('/', express.static('./public'));
  * Когда браузер пришлёт запрос на /api/users, в ответ ему вернётся содержимое файла users.json.
  */
 
+const catalogJSONPath = path.resolve(__dirname, './db/catalogDATA.json');
 
 app.get('/api/katalog', (req, res) => {
-    fs.readFile('./server/db/catalogDATA.json', 'utf-8', (err, data) => {
-        if (err) res.send({ result: 0, text: err });
+    fs.readFile(catalogJSONPath, 'utf-8', (err, data) => {
+        if (err) res.send(JSON.stringify({ result: 0, text: err }));
         else res.send(data);
-    });
-});
-
-app.get('/api/cart', (req, res) => {
-    fs.readFile('./server/db/getBasket.json', 'utf-8', (err, data) => {
-        if (err) res.send({ result: 0, text: err });
-        else res.send(data);
-    });
-});
-
-app.post('/api/cart', (req, res) => {
-    fs.readFile('./server/db/getBasket.json', 'utf-8', (err, data) => {
-        if (err) res.send({ result: 0, text: err });
-        else {
-            const cart = JSON.parse(data);
-            cart.contents.push(req.body);
-
-            fs.writeFile('./server/db/getBasket.json', JSON.stringify(cart), (err) => {
-                if (err) res.send({ result: 0, text: err });
-                else res.send({ result: 1 });
-            });
-        }
-    });
-});
-
-app.delete('/api/cart', (req, res) => {
-    fs.readFile('./server/db/getBasket.json', 'utf-8', (err, data) => {
-        if (err) res.send({ result: 0, text: err });
-        else {
-            const cart = JSON.parse(data);
-            cart.contents.splice(req.body);
-
-            fs.writeFile('./server/db/getBasket.json', JSON.stringify(cart), (err) => {
-                if (err) res.send({ result: 0, text: err });
-                else res.send({ result: 1 });
-            });
-        }
-    });
-});
-
-app.put('/api/cart/:id', (req, res) => {
-    fs.readFile('./server/db/getBasket.json', 'utf-8', (err, data) => {
-        if (err) res.send({ result: 0, text: err });
-        else {
-            const cart = JSON.parse(data);
-            const find = cart.contents.find((good) => {
-                return good.id === +req.params.id;
-            });
-            find.quantity += req.body.quantity;
-
-            fs.writeFile('./server/db/getBasket.json', JSON.stringify(cart, null), (err) => {
-                if (err) {
-                    res.send({ result: 0, text: err })
-                    res.sendStatus(404, JSON.stringify({ result: 0, text: err }))
-                } else res.send({ result: 1 });
-            });
-        }
     });
 });
 

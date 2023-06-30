@@ -1,7 +1,7 @@
 Vue.component('katalog', {
     data() {
         return {
-            catalogUrl: "",//DATAbase_clothing-store/catalogDATA.json
+            catalogUrl: "",
             products: [],
             filtered: [],
             userSearch: this.userSearch
@@ -22,15 +22,6 @@ Vue.component('katalog', {
                 }
             })
         },
-
-        //     func_countGoods() {
-        //     this.getJson(`${API}DATAbase_clothing-store/getBasket.json`)
-        //     .then(data => {
-        //       for (let el of data.contents) {
-        //         this.countGoods += el.quantity
-        //       }
-        //     })
-        // },
     },
     computed: {
 
@@ -76,16 +67,3 @@ Vue.component('product', {
 </div>
 `
 });
-
-Vue.component('filter_block', {
-    props: ['filtered', 'userSearch'],
-    template: `
-<div>
-    <form action="#" class="search-form" @submit.prevent="filter">
-        <button class="btn-search" type="submit">
-            <img src="style/img/search.png" alt="search">
-        </button>
-        <input type="text" class="search-field" v-model="userSearch">
-    </form>
-</div>`
-})
