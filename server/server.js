@@ -3,9 +3,9 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const cartRouter = require('./cartRouter');
 const app = express(); //записываем в переменную основные методы express
-app.use(bodyParser.json());
 const path = require('path');
 
+app.use(bodyParser.json());
 app.use(express.json());
 app.use('/', express.static(path.resolve(__dirname, '../public')));
 app.use('/api/cart', cartRouter);

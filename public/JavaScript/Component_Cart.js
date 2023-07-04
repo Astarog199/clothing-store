@@ -1,8 +1,8 @@
 Vue.component('cart', {
     data() {
         return {
-            basketUrl: "DATAbase_clothing-store/getBasket.json",
-            cartItems: [],
+            cartItems: [], 
+            carttotal: 0, 
         }
     },
     methods: {
@@ -75,6 +75,24 @@ Vue.component('cart_item', {
                 <button class="del-btn" @click="$emit('remove', Item)">delete</button>
             </div>
         </div>
-    </div>
+    </div>`
+});
+
+Vue.component('cart_total', {
+    data() {
+        return {
+            carttotal: 0,
+        }
+    },
+    props: ['carttotal'],
+        mounted() {
+        this.$parent.getJson(`/api/cart`)
+            .then(data => {
+                this.carttotal = data.amount;
+            });
+    },
+
+    template: `
+        <p class="p2-pay"> GRAND TOTAL {{carttotal}} $</p>
     `
-})
+});

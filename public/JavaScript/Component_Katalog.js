@@ -4,23 +4,12 @@ Vue.component('katalog', {
             catalogUrl: "",
             products: [],
             filtered: [],
-            userSearch: this.userSearch
         };
     },
     methods: {
-        filter() {
-            let regexp = new RegExp(this.userSearch, 'i');
+        filter(userSearch) {
+            let regexp = new RegExp(userSearch, 'i');
             this.filtered = this.products.filter(el => regexp.test(el.title));
-            this.products.forEach(el => {
-                const block = document.querySelector(`.card-products[data-id="${el.id}"]`);
-                if (!this.filtered.includes(el)) {
-                    block.classList.remove('show');
-                    block.classList.add('hidden');
-                } else {
-                    block.classList.remove('hidden');
-                    block.classList.add('show');
-                }
-            })
         },
     },
     computed: {
@@ -37,7 +26,7 @@ Vue.component('katalog', {
     },
     template: `
     <div>
-        <product  v-for="product of products" :key="product.id" :product="product" class="card-products" :data-id=product.id>  </product>
+        <product  v-for="product of filtered" :key="product.id" :product="product" class="card-products" :data-id=product.id>  </product>
     </div>
     `,
 });

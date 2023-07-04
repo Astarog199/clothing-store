@@ -9,25 +9,6 @@ Vue.component('cart_head', {
         }
     },
     methods: {
-        /*
-      addProduct(product) {
-        
-          this.$parent.getJson(`/api/cart`)
-              .then(data => {
-                  if (data.result === 1) {
-                      this.countGoods++;
-                      let find = this.cartItems.find(el => el.id === product.id);
-                      if (find) {
-                          find.quantity++;
-                      } else {
-                          let prod = Object.assign({ quantity: 1 }, product);
-                          this.cartItems.push(prod);
-                      }
-                  } else {
-                      alert('Error');
-                  }
-              })
-      },*/
         addProduct(product) {
             let find = this.cartItems.find(el => el.id === product.id);
             if (find) {

@@ -1,5 +1,3 @@
-//const API = 'https://raw.githubusercontent.com/Astarog199/online-store-api/main/';
-
 const app = new Vue({
   el: '#app',
   data: {
